@@ -1,5 +1,5 @@
 from typing import Tuple
-from PIL import Image
+import imageio.v2 as imageio
 import numpy as np
 
 
@@ -48,7 +48,7 @@ class Maze:
 
 
 def solve_maze(maze_image_path: str, teleport_positions: np.array) -> Tuple[int, int, int]:
-    maze_image_file = Image.open(maze_image_path)
+    maze_image_file = imageio.imread(maze_image_path)
     maze_image = np.array(maze_image_file)
 
     maze = Maze(maze_image, teleport_positions)
